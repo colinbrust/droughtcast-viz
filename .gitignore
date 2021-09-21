@@ -1,0 +1,41 @@
+data/*
+figures/*
+scratch/*
+.idea/*
+
+DroughtCast.Rproj
+.Rhistory
+.ipynb_checkpoints
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*.DS_Store
+.Rproj.user/*
+.Rproj.user
+/scratch/
+/docs/
+/venv/
+/temp/
+.vscode/settings.json
+.Rbuildignore
+legacy/docs/drought_agu_abstract_jk_KJ.docx
+legacy/docs

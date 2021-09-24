@@ -1,7 +1,7 @@
 import geopandas as gpd
 import numpy as np
 import rasterio as rio
-from bokeh.plotting import figure, show
+from bokeh.plotting import figure
 from xyzservices import TileProvider
 from bokeh.tile_providers import get_provider
 from bokeh.models.mappers import CategoricalColorMapper, LinearColorMapper
@@ -9,8 +9,8 @@ from bokeh.models import HoverTool, ColorBar, GeoJSONDataSource
 
 
 
-def plot_map(raster, states, date, forecast=True):
-    arr = raster.read(1)
+def plot_map(raster, states, date, forecast=True, band=1):
+    arr = raster.read(band)
     arr[arr == raster.nodata] = 0
     arr = arr - 1
     arr = arr.astype(np.int8)

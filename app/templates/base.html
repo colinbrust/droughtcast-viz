@@ -1,16 +1,48 @@
-<!-- http://jinja.pocoo.org/docs/2.10/templates/#escaping -->
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta charset="utf-8">
-        <title>DroughtCast: A Machine Learning USDM Forecast</title>
-
+        <title>DroughtCast</title>
     </head>
+
+    <!-- Button to submit data -->
+    <form action="/">
+        <button>Update</button>
+        <h1>Select Forecast Date</h1>
+
+    <!-- Dropdown selection of dates -->
+    <select id=date, name=date>
+        <option value="{{dates[-1]}}" selected>{{dates[-1]}}</option>
+        {% for date in dates[:-1] %}
+            <option value="{{date}}">{{date}}</option>"
+        {% endfor %}
+    </select>
+    <br>
+
+    <!-- Holdout options -->
+    {% for holdout in holdouts %}
+        <input type="radio" name="holdout" id="{{holdout}}" value="{{holdout}}"> {{holdout_mapper[holdout]}} </input>
+    {% endfor %}
+    <br>
+
+        <!-- Holdout options -->
+    {% for lead_time in lead_times %}
+        <input type="radio" name="lead_time" id="{{lead_time}}" value="{{lead_time}}"> {{lead_time}} </input>
+    {% endfor %}
+    <br>
+
+    <!-- Holdout options -->
+    {% for stat in stats %}
+        <input type="radio" name="stat" id="{{stat}}" value="{{stat}}"> {{stat_mapper[stat]}} </input>
+    {% endfor %}
+    <br>
+
+    <hr>
+
+    <!-- Render Bokeh plot -->
     <script type='text/javascript' src={{cdn_js | safe}}></script>
-    
     {{ plot_script|safe }}
     {{ plot_div|safe }}
-
 
 </html>
